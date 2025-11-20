@@ -23,7 +23,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
 
-                withSonarQubeEnv('MySonarQube') { 
+                withSonarQubeEnv('SonarQubeServer') {
 
                     bat 'mvn sonar:sonar -Dsonar.login=%SONAR_TOKEN_PSW%'
                 }
