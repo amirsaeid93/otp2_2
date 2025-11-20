@@ -2,23 +2,19 @@ pipeline {
     agent any
 
     tools {
-        // Make sure 'JDK-17' is the name of a JDK installation in your Jenkins Global Tool Configuration
-        jdk 'JDK-17' 
-        // Make sure 'M3' is the name of a Maven installation in your Jenkins Global Tool Configuration
+        jdk 'JAVA_HOME'
         maven 'MAVEN_HOME'
     }
 
     stages {
         stage('Checkout') {
             steps {
-                // Fetches the code from the Git repository configured in the Jenkins job
                 checkout scm
             }
         }
 
         stage('Build & Test') {
             steps {
-                // Runs Maven to compile, run tests, and generate JaCoCo coverage report
                 sh 'mvn clean verify'
             }
         }
