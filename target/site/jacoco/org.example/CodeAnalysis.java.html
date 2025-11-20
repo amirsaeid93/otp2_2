@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CodeAnalysis.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Week_4_demo</a> &gt; <a href="index.source.html" class="el_package">org.example</a> &gt; <span class="el_source">CodeAnalysis.java</span></div><h1>CodeAnalysis.java</h1><pre class="source lang-java linenums">package org.example;
+import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
+import java.util.logging.Logger;
+
+
+<span class="nc" id="L7">public class CodeAnalysis {</span>
+    private static final String RESULT_MESSAGE = &quot;The result is: &quot;;
+
+    public static void main(String[] args){
+<span class="nc" id="L11">        Logger log = Logger.getLogger(&quot;CodeAnalysis&quot;);</span>
+<span class="nc" id="L12">        Scanner sc = new Scanner(System.in, StandardCharsets.UTF_8);</span>
+<span class="nc" id="L13">        log.info(&quot;Enter the first number: &quot;);</span>
+<span class="nc" id="L14">        final double num1 = sc.nextInt();</span>
+<span class="nc" id="L15">        log.info(&quot;Enter the second number: &quot;);</span>
+<span class="nc" id="L16">        final double num2 = sc.nextInt();</span>
+<span class="nc" id="L17">        log.info(&quot;Select an operation by choosing one of the following numbers: (1-Add, 2-Subtract, 3-Multiply, 4-Divide): &quot;);</span>
+<span class="nc" id="L18">        int operation = sc.nextInt();</span>
+
+<span class="nc bnc" id="L20" title="All 5 branches missed.">        switch (operation) {</span>
+            case 1:
+<span class="nc" id="L22">                log.info(() -&gt; String.format(&quot;%s%s&quot;, RESULT_MESSAGE, addValues(num1, num2)));</span>
+<span class="nc" id="L23">                break;</span>
+            case 2:
+<span class="nc" id="L25">                log.info(() -&gt; String.format(&quot;%s%s&quot;, RESULT_MESSAGE, subtractValues(num1, num2)));</span>
+<span class="nc" id="L26">                break;</span>
+            case 3:
+<span class="nc" id="L28">                log.info(() -&gt; String.format(&quot;%s%s&quot;, RESULT_MESSAGE, multiplyValues(num1, num2)));</span>
+<span class="nc" id="L29">                break;</span>
+            case 4:
+<span class="nc" id="L31">                log.info(() -&gt; String.format(&quot;%s%s&quot;, RESULT_MESSAGE, divideValues(num1, num2)));</span>
+<span class="nc" id="L32">                break;</span>
+            default:
+<span class="nc" id="L34">                log.info(&quot;Invalid operation&quot;);</span>
+        }
+<span class="nc" id="L36">    }</span>
+    public static double addValues (double num1, double num2){
+<span class="fc" id="L38">        return num1 + num2;</span>
+    }
+    public static double subtractValues (double num1, double num2){
+<span class="fc" id="L41">        return num1 - num2;</span>
+    }
+    public static double multiplyValues (double num1, double num2){
+<span class="fc" id="L44">        return num1 * num2;</span>
+    }
+    public static double divideValues (double num1, double num2){
+<span class="fc" id="L47">        return num1 / num2;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

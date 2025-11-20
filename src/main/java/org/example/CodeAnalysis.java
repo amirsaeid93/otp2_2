@@ -5,6 +5,8 @@ import java.util.logging.Logger;
 
 
 public class CodeAnalysis {
+    private static final String RESULT_MESSAGE = "The result is: ";
+
     public static void main(String[] args){
         Logger log = Logger.getLogger("CodeAnalysis");
         Scanner sc = new Scanner(System.in, StandardCharsets.UTF_8);
@@ -12,28 +14,25 @@ public class CodeAnalysis {
         final double num1 = sc.nextInt();
         log.info("Enter the second number: ");
         final double num2 = sc.nextInt();
-        int operation = (int) Math.ceil(num1 / num2);
-        double value = 0;
-            switch (operation) {
-                case 1:
-                    value = addValues(num1, num2);
-                    break;
-                case 2:
-                    value = subtractValues(num1, num2);
-                    break;
-                case 3:
-                    value = multiplyValues(num1, num2);
-                    break;
-                case 4:
-                    value = divideValues(num1, num2);
-                    break;
-                default:
-                    log.info("Invalid operation");
-            }
-        log.info("The result is: "+ addValues(num1, num2));
-        log.info("The result is: "+ subtractValues(num1, num2));
-        log.info("The result is: "+ multiplyValues(num1, num2));
-        log.info("The result is: "+ divideValues(num1, num2));
+        log.info("Select an operation by choosing one of the following numbers: (1-Add, 2-Subtract, 3-Multiply, 4-Divide): ");
+        int operation = sc.nextInt();
+
+        switch (operation) {
+            case 1:
+                log.info(() -> String.format("%s%s", RESULT_MESSAGE, addValues(num1, num2)));
+                break;
+            case 2:
+                log.info(() -> String.format("%s%s", RESULT_MESSAGE, subtractValues(num1, num2)));
+                break;
+            case 3:
+                log.info(() -> String.format("%s%s", RESULT_MESSAGE, multiplyValues(num1, num2)));
+                break;
+            case 4:
+                log.info(() -> String.format("%s%s", RESULT_MESSAGE, divideValues(num1, num2)));
+                break;
+            default:
+                log.info("Invalid operation");
+        }
     }
     public static double addValues (double num1, double num2){
         return num1 + num2;
